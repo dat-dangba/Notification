@@ -1,0 +1,18 @@
+{
+    "name": "Notification",
+    "rootNamespace": "DBD.Notification",
+    "references": [
+        "GUID:d71139be5ab9e4bb49bc95f8093014e9",
+        "GUID:ac145e6b8c6034cdbadc8c6e26aedbcf",
+        "GUID:1e8e55397bd004beaba78a667566665f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
