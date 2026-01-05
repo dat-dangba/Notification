@@ -7,5 +7,7 @@
    Select icon small notification (48x48, Read/Write)<p>
 3. Custom LauncherManifest<p>
    Add meta-data in application<p>
+```xml
    <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="
    @drawable/icon_small_notification"/>
+```
