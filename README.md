@@ -1,6 +1,6 @@
 # DBD Notification
 
-1. Add via Git URL: https://github.com/dat-dangba/Notification
+1. Add via Git URL: https://github.com/dat-dangba/Notification.git
 2. Build Profiles -> Player Settings -> Mobile Notifications -> Android<p>
    Identifier: icon_small_notification<p>
    Type: Small<p>
