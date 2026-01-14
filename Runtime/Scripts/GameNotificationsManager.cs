@@ -219,18 +219,32 @@ namespace DBD.Notification
                     PendingNotifications.Sort((a, b) => { return a.DeliveryTime.CompareTo(b.DeliveryTime); });
 
                     // Set badge numbers incrementally
-                    var badgeNum = 1;
-                    foreach (PendingNotification pendingNotification in PendingNotifications)
+
+                    for (int i = 0; i < PendingNotifications.Count; i++)
                     {
+                        PendingNotification pendingNotification = PendingNotifications[i];
                         if (!pendingNotification.Scheduled)
                         {
 #if UNITY_ANDROID
                             pendingNotification.Notification.BadgeNumber = 1;
 #elif UNITY_IOS
-                            pendingNotification.Notification.BadgeNumber = badgeNum++;
+                            pendingNotification.Notification.BadgeNumber = i + 1;
 #endif
                         }
                     }
+
+//                     var badgeNum = 1;
+//                     foreach (PendingNotification pendingNotification in PendingNotifications)
+//                     {
+//                         if (!pendingNotification.Scheduled)
+//                         {
+// #if UNITY_ANDROID
+//                             pendingNotification.Notification.BadgeNumber = 1;
+// #elif UNITY_IOS
+//                             pendingNotification.Notification.BadgeNumber = badgeNum++;
+// #endif
+//                         }
+//                     }
                 }
 
                 for (int i = PendingNotifications.Count - 1; i >= 0; i--)

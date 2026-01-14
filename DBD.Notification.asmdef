@@ -1,5 +1,5 @@
 {
-    "name": "Notification",
+    "name": "DBD.Notification",
     "rootNamespace": "DBD.Notification",
     "references": [
         "GUID:d71139be5ab9e4bb49bc95f8093014e9",
