@@ -88,23 +88,33 @@ namespace DBD.Notification
         {
         }
 
-        public virtual void ScheduleNotification(string title, string body, DateTime deliveryTime,
+        public virtual int ScheduleNotification(string title, string body, DateTime deliveryTime, int id = -1,
             int badgeNumber = 0, string data = "")
         {
             GameNotification notification = manager.CreateNotification();
 
             if (notification == null)
             {
-                return;
+                return -1;
             }
 
             notification.Title = title;
             notification.Body = body;
             notification.Data = data;
             notification.BadgeNumber = badgeNumber;
+            if (id > 0)
+            {
+                notification.Id = id;
+            }
 
             PendingNotification notificationToDisplay = manager.ScheduleNotification(notification, deliveryTime);
             notificationToDisplay.Reschedule = true;
+            if (notificationToDisplay.Notification.Id != null)
+            {
+                return (int)notificationToDisplay.Notification.Id;
+            }
+
+            return id;
         }
     }
 }
