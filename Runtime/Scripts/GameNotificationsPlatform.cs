@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using Unity.Notifications;
+
+#if UNITY_ANDROID
 using Unity.Notifications.Android;
+#endif
 
 namespace DBD.Notification
 {
