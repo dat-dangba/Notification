@@ -61,9 +61,9 @@ namespace DBD.Notification
             manager.LocalNotificationExpired -= OnExpired;
         }
 
-        public void Init()
+        protected virtual IEnumerator Start()
         {
-            StartCoroutine(manager.Initialize());
+            return manager.Initialize();
         }
 
         protected virtual void Update()
