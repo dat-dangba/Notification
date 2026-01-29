@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml;
 using UnityEditor.Android;
+using UnityEngine;
 
 namespace DBD.Notification.Editor
 {
@@ -35,7 +36,20 @@ namespace DBD.Notification.Editor
 
         public void OnPostGenerateGradleAndroidProject(string pathToBuiltProject)
         {
-            string manifestPath = Path.Combine(pathToBuiltProject, "launcher/src/main/AndroidManifest.xml");
+            string manifestPath;
+            if (pathToBuiltProject.Contains("unityLibrary"))
+            {
+                var pathProject = pathToBuiltProject.Replace("unityLibrary", "");
+                manifestPath = Path.Combine(pathProject, "launcher/src/main/AndroidManifest.xml");
+            }
+            else if (pathToBuiltProject.Contains("launcher"))
+            {
+                manifestPath = Path.Combine(pathToBuiltProject, "src/main/AndroidManifest.xml");
+            }
+            else
+            {
+                manifestPath = Path.Combine(pathToBuiltProject, "launcher/src/main/AndroidManifest.xml");
+            }
 
             var xml = new XmlDocument();
             xml.Load(manifestPath);
